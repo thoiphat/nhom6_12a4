@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khám Phá Địa Danh</title>
+    <style>
+        /* Thanh điều hướng */
+        nav {
+            background-color: #f44336; /* Màu đỏ nổi bật */
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo hoặc menu toggle (hamburger) */
+        .hamburger {
+            display: none; /* Ẩn mặc định */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 5px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        /* Danh sách menu */
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0 20px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 22px; /* Cỡ chữ lớn */
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        ul li a:hover {
+            color: #333; /* Chuyển sang màu tối khi hover */
+        }
+
+        /* Hamburger Menu hiển thị trên các thiết bị di động */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex; /* Hiện hamburger khi màn hình nhỏ */
+            }
+            
+            ul {
+                display: none; /* Ẩn menu trên màn hình nhỏ */
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                background-color: #f44336;
+                padding: 10px 0;
+            }
+
+            ul li {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            ul li a {
+                font-size: 24px; /* Cỡ chữ lớn hơn khi trên di động */
+            }
+
+            /* Khi menu được mở */
+            nav.active ul {
+                display: flex; /* Hiển thị menu khi có class 'active' */
+            }
+        }
+
+        /* Các phần khác trên trang */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #f44336;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Chỉnh lại kích thước hình ảnh */
+        .image-gallery img {
+            width: 100%;   /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của phần chứa */
+            height: auto;  /* Đảm bảo tỷ lệ hình ảnh được giữ nguyên */
+            max-width: 100%; /* Giới hạn chiều rộng tối đa của hình ảnh */
+            display: block; /* Loại bỏ khoảng trắng dưới hình ảnh */
+            margin-bottom: 20px; /* Tạo khoảng cách giữa các hình ảnh */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav>
+        <button class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <ul id="menu">
+            <li><a href="bentre.html">Trang Chủ</a></li>
+            <li><a href="diadanh1.html">ĐÌNH PHÚ LỄ</a></li>
+            <li><a href="diadanh2.html">KDT ĐỒNG KHỞI</a></li>
+            <li><a href="diadanh3.html">ĐÌNH TÂN THẠNH</a></li>
+            <li><a href="diadanh4.html">CĂN CỨ KHU UỶ</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- Trang Chủ -->
+    <section id="home" class="section">
+        <h1>Khám Phá Các Địa Danh</h1>
+        <p class="bold-text">Chào mừng bạn đến với trang khám phá các địa danh nổi tiếng. Hãy tìm hiểu về những địa danh đặc sắc của Việt Nam!</p>
+    </section>
+
+    <!-- Địa Danh 1 -->
+    <section id="monan1" class="section">
+        <h2>ĐÌNH TÂN THẠNH</h2>
+        <div class="image-gallery">
+            <img src="https://mia.vn/media/uploads/blog-du-lich/dinh-tan-thach-ben-tre-va-loi-kien-truc-truyen-thong-lau-doi-4-1666743534.jpg">
+            <img src="https://mia.vn/media/uploads/blog-du-lich/dinh-tan-thach-ben-tre-va-loi-kien-truc-truyen-thong-lau-doi-5-1666743534.jpg" alt="Hà Nội 2">
+        </div>
+        <p> Đình Tân Thạch nằm bên bờ sông Mê Kông, gần khu vực cù lao Thới An - cồn Phụng - cồn Quy.
+
+Lịch sử hình thành Đình Tân Thạch:
+
+Đình Tân Thạch được xây dựng vào năm 1841, lúc bấy giờ có tên gọi là đình Thạch Hồ. Đình do ông Nguyễn Quý Bằng là người đã chủ động hiến đất và vận động bà con nhân dân trong vùng tham gia đóng góp để xây nên nơi thờ Thành Hoàng làng. Cấu trúc đình làng theo hình chữ Tam (三) với ba gian chính là Võ ca, Võ quy và Chánh điện liền kề nhau. 
+
+ </Đình Tân Thạch cách trung tâm thành phố Bến Tre khoảng 12km.
+
+Bạn có thể đi theo hướng dẫn như sau:
+
+- Từ trung tâm thành phố, bạn đi đường Đại lộ Đồng Khởi khoảng 2.5km, băng qua bùng binh Đông tây và vòng xoay Phú Khương.
+
+- Khi đến vòng xoay Tân Thành thì bạn đi theo lối ra thứ nhất để vào Quốc lộ 60.
+
+- Đi khoảng 2.5km, gặp ngã ba thì bạn rẽ vào đường Trần Văn Ơn.
+
+- Bạn cứ thẳng theo đường Trần Văn Ơn khoảng 5km, khi gặp ngã tư Nhà thuốc Long Châu thì rẽ phải vào đường HL187/Phà Rạch Miễu.
+
+- Bạn đi khoảng 600m thì gặp ngã ba Trụ sở ấp An Thị, tại đây bạn rẽ trái vào khoảng 150m thì sẽ gặp Đình Tân Thạch bên tay trái.
+p>
+
+     <div class="image-gallery">
+            <img src= https://mia.vn/media/uploads/blog-du-lich/dinh-tan-thach-ben-tre-va-loi-kien-truc-truyen-thong-lau-doi-7-1666743535.jpg alt="Hà Nội 1">
+            <img src= https://mia.vn/media/uploads/blog-du-lich/dinh-tan-thach-ben-tre-va-loi-kien-truc-truyen-thong-lau-doi-3-1666743534.jpg alt="Hà Nội 2">
+        </div>
+        <p> Hướng dẫn di chuyển đến với khu di tích Đồng Khởi Bến Tre
+Để đến thăm Khu di tích Đồng Khởi Bến Tre, bạn có thể bắt đầu hành trình từ trung tâm thành phố, di chuyển theo đường Quốc lộ 60 và đến cầu Mỏ Cày. Sau đó, thực hiện một bước quan trọng bằng cách rẽ trái vào Hương lộ 22, tiếp tục quãng đường khoảng 4km nữa để đến nơi đích.
+
+Ngoài ra, không chỉ Khu di tích Đồng Khởi Bến Tre, mà còn có Căn cứ khu uỷ Sài Gòn Gia Định nằm trên cùng tuyến đường đi đến đích. Bạn có thể tận dụng cơ hội này để kết hợp tham quan cả hai địa điểm trong một chuyến du lịch sinh thái văn hóa lịch sử Bến Tre của mình. Điều này sẽ mang lại trải nghiệm đa dạng và sâu sắc về lịch sử và văn hóa của vùng đất này. </p>
+
+        <!-- Đánh giá -->
+        <div class="rating">
+            <img src="star-icon.png" alt="Star" onclick="rate(1)">
+            <img src="star-icon.png" alt="Star" onclick="rate(2)">
+            <img src="star-icon.png" alt="Star" onclick="rate(3)">
+            <img src="star-icon.png" alt="Star" onclick="rate(4)">
+            <img src="star-icon.png" alt="Star" onclick="rate(5)">
+            <span id="rating-result">Chưa đánh giá</span>
+        </div>
+
+        <!-- Bình luận -->
+        <div class="comment-section">
+            <h3 class="uppercase">Bình luận</h3>
+
+            <!-- Form bình luận -->
+            <div class="comment-box">
+                <textarea id="comment-text" placeholder="Nhập bình luận của bạn..."></textarea>
+                <input type="file" id="comment-image" accept="image/*">
+                <button onclick="postComment()">Gửi Bình Luận</button>
+            </div>
+
+            <!-- Danh sách bình luận -->
+            <ul id="comment-list" class="comment-list"></ul>
+        </div>
+    </section>
+
+    <script>
+        // Xử lý đánh giá sao
+        let rating = 0;
+        function rate(stars) {
+            rating = stars;
+            const starsArray = document.querySelectorAll('.rating img');
+            starsArray.forEach((star, index) => {
+                if (index < stars) {
+                    star.style.filter = "grayscale(0%)";
+                } else {
+                    star.style.filter = "grayscale(100%)";
+                }
+            });
+            document.getElementById('rating-result').textContent = `${stars}/5`;
+        }
+
+        // Chức năng bình luận
+        function postComment() {
+            const commentText = document.getElementById('comment-text').value;
+            const commentImage = document.getElementById('comment-image').files[0];
+            const commentList = document.getElementById('comment-list');
+
+            if (commentText.trim() === "") {
+                alert("Vui lòng nhập bình luận!");
+                return;
+            }
+
+            const commentItem = document.createElement('li');
+            commentItem.classList.add('comment-item');
+
+            const commentHeader = document.createElement('div');
+            commentHeader.classList.add('comment-header');
+            commentHeader.innerHTML = `<span class="author">Người dùng</span><span class="timestamp">${new Date().toLocaleString()}</span>`;
+
+            const deleteBtn = document.createElement('span');
+            deleteBtn.classList.add('delete-comment');
+            deleteBtn.textContent = 'Xoá bình luận';
+            deleteBtn.onclick = () => deleteComment(commentItem);
+
+            const commentFooter = document.createElement('div');
+            commentFooter.classList.add('comment-footer');
+            const heart = document.createElement('span');
+            heart.classList.add('heart');
+            heart.innerHTML = "❤️";
+            heart.onclick = () => toggleHeart(heart);
+
+            const replyBtn = document.createElement('button');
+            replyBtn.textContent = "Trả lời";
+            replyBtn.onclick = () => showReplyBox(commentItem);
+
+            commentFooter.appendChild(heart);
+            commentFooter.appendChild(replyBtn);
+
+            const commentBody = document.createElement('p');
+            commentBody.textContent = commentText;
+
+            // Nếu có ảnh, hiển thị ảnh
+            if (commentImage) {
+                const image = document.createElement('img');
+                image.src = URL.createObjectURL(commentImage);
+                image.alt = "Hình ảnh bình luận";
+                image.style.maxWidth = "200px";
+                commentBody.appendChild(image);
+            }
+
+            commentItem.appendChild(commentHeader);
+            commentItem.appendChild(commentBody);
+            commentItem.appendChild(commentFooter);
+            commentItem.appendChild(deleteBtn);
+
+            commentList.appendChild(commentItem);
+
+            // Xóa nội dung nhập
+            document.getElementById('comment-text').value = "";
+            document.getElementById('comment-image').value = "";
+        }
+
+        // Thả tim bình luận
+        function toggleHeart(heart) {
+            heart.classList.toggle('liked');
+        }
+
+        // Xoá bình luận
+        function deleteComment(commentItem) {
+            if (confirm("Bạn chắc chắn muốn xoá bình luận này?")) {
+                commentItem.remove();
+            }
+        }
+
+        // Hiển thị hộp trả lời
+        function showReplyBox(commentItem) {
+            const replyBox = document.createElement('div');
+            replyBox.classList.add('reply-box');
+            replyBox.innerHTML = `<textarea placeholder="Nhập trả lời..."></textarea><button onclick="postReply(event, this)">Gửi trả lời</button>`;
+            commentItem.appendChild(replyBox);
+        }
+
+        // Gửi trả lời
+        function postReply(event, button) {
+            const replyText = button.previousElementSibling.value;
+            if (!replyText.trim()) {
+                alert("Vui lòng nhập trả lời!");
+                return;
+            }
+            const replyItem = document.createElement('p');
+            replyItem.textContent = `Trả lời: ${replyText}`;
+            button.parentElement.parentElement.appendChild(replyItem);
+            button.parentElement.querySelector('textarea').value = "";
+        }
+
+        // Xử lý mở/đóng menu
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+

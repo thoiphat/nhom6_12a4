@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khám Phá Địa Danh Của Bến Tre</title>
+    <style>
+        /* Cấu trúc chung */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #4CAF50; /* Màu nền xanh lá cây */
+            color: #333;
+        }
+
+        /* Thanh điều hướng */
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 3px solid #f44336; /* Khung bao quanh thanh điều hướng */
+            border-radius: 10px;
+        }
+
+        /* Danh sách menu */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Các mục trong menu */
+        nav ul li {
+            margin: 5px;
+            flex: 1 1 120px;
+            text-align: center;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px; /* Giảm kích thước font chữ */
+            font-weight: bold;
+            padding: 8px 15px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Khi hover */
+        nav ul li a:hover {
+            color: #333;
+            background-color: #f44336; /* Màu nền khi hover */
+        }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 5px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        /* Ẩn menu khi màn hình nhỏ */
+        nav ul {
+            display: flex; /* Đảm bảo menu luôn có trong chế độ desktop */
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Khi có class 'active', menu sẽ hiển thị */
+        nav.active ul {
+            display: block;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        /* Media queries cho màn hình nhỏ */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Ẩn menu trên màn hình nhỏ */
+            }
+            nav.active ul {
+                display: flex; /* Hiển thị menu khi kích hoạt */
+            }
+            .hamburger {
+                display: flex; /* Hiển thị hamburger menu */
+            }
+            nav ul li {
+                flex: 1 1 100%;
+                margin: 0;
+            }
+        }
+
+        /* Các phần nội dung */
+        .section {
+            padding: 20px;
+            margin: 80px 20px 20px 20px; /* Cách thanh điều hướng 80px */
+            background-color: white; /* Màu nền trắng cho khung nội dung */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Phần giới thiệu */
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f44336; /* Màu đỏ cho tiêu đề */
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #1a73e8; /* Màu xanh cho các địa danh */
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: justify;
+            color: #555;
+        }
+
+        /* Hình ảnh */
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap; /* Cho phép các ảnh xuống dòng khi không đủ không gian */
+            gap: 20px; /* Khoảng cách giữa các ảnh */
+            justify-content: space-between; /* Căn đều các ảnh trong mỗi dòng */
+            margin-bottom: 20px;
+        }
+
+        .image-gallery img {
+            width: 48%; /* Mỗi ảnh chiếm khoảng 48% chiều rộng của container */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Media Queries cho màn hình nhỏ */
+        @media (max-width: 768px) {
+            .image-gallery img {
+                width: 100%; /* Khi màn hình nhỏ, mỗi ảnh sẽ chiếm 100% chiều rộng */
+            }
+        }
+
+        /* Phần video */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+        }
+
+        /* List nhạc */
+        .music-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .music-list select {
+            padding: 10px;
+            font-size: 18px;
+            margin: 10px 0;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .music-list audio {
+            width: 80%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Thanh điều hướng -->
+    <nav id="navbar">
+        <button class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <ul>
+            <li><a href="diadanh1.html">ĐÌNH PHÚ LỄ</a></li>
+            <li><a href="diadanh2.html">KDT ĐỒNG KHỞI</a></li>
+            <li><a href="diadanh3.html">ĐÌNH TÂN THẠNH</a></li>
+            <li><a href="diadanh4.html">CĂN CỨ KHU UỶ</a></li>
+      
+        </ul>
+    </nav>
+
+    <!-- Trang Chủ -->
+    <section id="home" class="section">
+        <h1>Khám Phá Bến Tre</h1>
+        <p>Bến Tre, một tỉnh nằm ở miền Tây Nam Bộ, nổi bật với vẻ đẹp thiên nhiên hoang sơ và những địa danh lịch sử đáng chú ý. Với những dòng sông, vườn dừa rộng lớn và những làng nghề truyền thống, Bến Tre đã trở thành một điểm đến không thể bỏ qua cho du khách yêu thích khám phá văn hóa và thiên nhiên.</p>
+    </section>
+
+    <!-- Lịch sử hình thành Bến Tre -->
+    <section id="history" class="section">
+        <h2>Lịch Sử Hình Thành Bến Tre</h2>
+        <p>Bến Tre được thành lập vào thế kỷ 18, khi vùng đất này là nơi cư trú của nhiều cộng đồng dân cư, chủ yếu là người Kinh và người Khmer. Qua nhiều thăng trầm lịch sử, Bến Tre đã phát triển thành một tỉnh trọng yếu của miền Tây Nam Bộ, nổi bật với văn hóa, lịch sử và những con người cần cù, hiếu khách.</p>
+    </section>
+
+    <!-- Hình ảnh Bến Tre -->
+    <section id="images" class="section">
+        <h2>Hình Ảnh Về Bến Tre</h2>
+        <div class="image-gallery">
+            <img src="https://media.vneconomy.vn/w800/images/upload/2024/08/20/dua4.jpg" alt="Hình ảnh 1">
+            <img src="https://cdn.media.dulich24.com.vn/bai-viet/diem-den-hap-dan-o-ben-tre-26013022/nhung-diem-du-lich-noi-tieng-ben-tre.jpg" alt="Hình ảnh 2">
+            <img src="https://ticotravel.com.vn/wp-content/uploads/2023/12/lang-be-ben-tre-1.jpeg" alt="Hình ảnh 3">
+        </div>
+    </section>
+
+    <!-- List Nhạc -->
+    <section id="music" class="section">
+        <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/vn/album/nh%E1%BA%A1c-mi%E1%BB%81n-t%C3%A2y-tuy%E1%BB%83n-ch%E1%BB%8Dn/1151396119?l=vi"></iframe>
+    </section>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navbar = document.getElementById('navbar');
+
+        hamburger.addEventListener('click', function() {
+            navbar.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
